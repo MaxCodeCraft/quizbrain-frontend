@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-function categoryButton(props) {
+function CategoryButton(props) {
   return (
     <>
       <Link href={`/quiz`}>
@@ -27,4 +27,4 @@ function categoryButton(props) {
   );
 }
 
-export default categoryButton;
+export default CategoryButton;
