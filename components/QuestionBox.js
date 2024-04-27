@@ -15,10 +15,10 @@ function QuestionBox(props) {
 
   return (
     <div
-      className={`questionBox w-[280px] h-[127px] bg-[#E7E7E7] ${selectedStyle} flex justify-center items-center cursor-pointer rounded-lg`}
+      className={`questionBox w-[280px] h-[127px] bg-[#E7E7E7] ${selectedStyle} flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-hidden`}
       onClick={() => handleClick()}
     >
-      <p className="answer">New line</p>
+      <p className="answer font-medium text-2xl text-center">New line</p>
     </div>
   );
 }
