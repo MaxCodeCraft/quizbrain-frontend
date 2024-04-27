@@ -23,12 +23,12 @@ function Home() {
       <div className="categoryContainer flex flex-col items-center">
         <h1 className="text-[54px] font-extrabold">
           Sur quel thème tu veux{" "}
-          <span className="text-white mb-10 after:absolute inline-block h-30px w-105pc bg-[#8D49C3] content-[''] top-[15px] left-[-10px] right-0 transform rotate-[357deg] z-index--1">
+          <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[10px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
             bûcher
           </span>{" "}
           ?
         </h1>
-        <div className="categories flex w-8/12 flex-wrap gap-5">{buttons}</div>
+        <div className="categories mt-10 grid gap-5 grid-cols-3">{buttons}</div>
       </div>
     </div>
   );

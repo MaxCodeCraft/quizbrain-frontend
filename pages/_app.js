@@ -9,18 +9,19 @@ function App({ Component, pageProps }) {
       <Head>
         <title>QuizBrain</title>
       </Head>
-      <header className="w-screen border-b-4 border-black">
-        <div className="headerContainer flex w-8/12 items-center flex-wrap">
-          <Link href="/">
-            <div className="logo flex w-64 justify-between items-center m-auto py-3 cursor-pointer">
-              <Image src="/logo.svg" width={67} height={67} />
-              <div className="logoTitle text-4xl font-extrabold">
+      <header className="w-screen border-b-4 border-black flex justify-center">
+        <div className="headerContainer flex w-8/12 items-center justify-between">
+          <div className="logoBlock flex w-64 justify-between items-center py-3">
+            <Image src="/logo.svg" width={67} height={67} />
+            <Link href="/">
+              <div className="logoTitle text-4xl font-extrabold cursor-pointer">
                 <p>
-                  Quiz<span className="text-[#8D49C3]">Brain</span>
+                  Quiz
+                  <span className="text-[#8D49C3] cursor-pointer">Brain</span>
                 </p>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
 
           <menu className="links w-64 flex justify-end text-xl">
             <Link href="/leaderboard">Leaderboard</Link>
