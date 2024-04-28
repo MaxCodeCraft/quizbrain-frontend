@@ -1,21 +1,30 @@
 import CategoryButton from "./CategoryButton";
-import { motion } from "framer-motion";
 
 function Home() {
   const buttonsData = [
-    { id: 1, name: "Linux", icon: "/cat-linux.svg" },
-    { id: 2, name: "Bash", icon: "/cat-bash.svg" },
-    { id: 3, name: "Docker", icon: "/cat-docker.svg" },
-    { id: 4, name: "JavaScript", icon: "/cat-javascript.svg" },
-    { id: 5, name: "HTML", icon: "/cat-html.svg" },
-    { id: 6, name: "PHP", icon: "/cat-php.svg" },
-    { id: 7, name: "SQL", icon: "/cat-sql.svg" },
-    { id: 8, name: "Code", icon: "/cat-code.svg" },
-    { id: 9, name: "Python", icon: "/cat-python.svg" },
+    { id: 1, btnName: "Linux", icon: "/cat-linux.svg", cat: "linux" },
+    { id: 2, btnName: "Bash", icon: "/cat-bash.svg", cat: "bash" },
+    { id: 3, btnName: "Docker", icon: "/cat-docker.svg", cat: "docker" },
+    {
+      id: 4,
+      btnName: "JavaScript",
+      icon: "/cat-javascript.svg",
+      cat: "javascript",
+    },
+    { id: 5, btnName: "HTML", icon: "/cat-html.svg", cat: "html" },
+    { id: 6, btnName: "PHP", icon: "/cat-php.svg", cat: "php" },
+    { id: 7, btnName: "SQL", icon: "/cat-sql.svg", cat: "sql" },
+    { id: 8, btnName: "Code", icon: "/cat-code.svg", cat: "code" },
+    { id: 9, btnName: "Python", icon: "/cat-python.svg", cat: "python" },
   ];
 
-  const buttons = buttonsData.map((button) => (
-    <CategoryButton name={button.name} icon={button.icon} />
+  const buttons = buttonsData.map((button, i) => (
+    <CategoryButton
+      key={i}
+      name={button.btnName}
+      icon={button.icon}
+      cat={button.cat}
+    />
   ));
 
   return (
