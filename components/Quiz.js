@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import QuestionBox from "./QuestionBox";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
@@ -54,16 +55,18 @@ function Quiz() {
           initial={{ x: -250, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
-          <motion.div
-            className="validateBtn w-[280px] h-[50px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer"
-            whileHover={{
-              scale: 1.1,
-              boxShadow: "0px 0px 4px rgb(50, 50, 50)",
-            }}
-            onClick={() => setTest(!test)}
-          >
-            <p className="text-white text-2xl font-medium">Valider</p>
-          </motion.div>
+          <Link href="/results">
+            <motion.div
+              className="validateBtn w-[280px] h-[50px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 0px 4px rgb(50, 50, 50)",
+              }}
+              onClick={() => setTest(!test)}
+            >
+              <p className="text-white text-2xl font-medium">Valider</p>
+            </motion.div>
+          </Link>
         </motion.div>
       </div>
     </div>
