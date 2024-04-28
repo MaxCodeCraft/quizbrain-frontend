@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 function App({ Component, pageProps }) {
   return (
@@ -9,9 +10,13 @@ function App({ Component, pageProps }) {
       <Head>
         <title>QuizBrain</title>
       </Head>
-      <header className="w-screen border-b-4 border-black flex justify-center">
+      <header className="w-screen h-[95px] border-b-4 border-black flex justify-center">
         <div className="headerContainer flex w-8/12 items-center justify-between">
-          <div className="logoBlock flex w-64 justify-between items-center py-3">
+          <motion.div
+            className="logoBlock flex w-64 justify-between items-center"
+            initial={{ y: -250 }}
+            animate={{ y: 0 }}
+          >
             <Image src="/logo.svg" width={67} height={67} />
             <Link href="/">
               <div className="logoTitle text-4xl font-extrabold cursor-pointer">
@@ -21,7 +26,7 @@ function App({ Component, pageProps }) {
                 </p>
               </div>
             </Link>
-          </div>
+          </motion.div>
 
           <menu className="links w-64 flex justify-end text-xl">
             <Link href="/leaderboard">Leaderboard</Link>

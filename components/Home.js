@@ -1,4 +1,5 @@
 import CategoryButton from "./CategoryButton";
+import { motion } from "framer-motion";
 
 function Home() {
   const buttonsData = [

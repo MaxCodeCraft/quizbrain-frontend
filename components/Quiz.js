@@ -1,19 +1,14 @@
 import Image from "next/image";
 import QuestionBox from "./QuestionBox";
+import { motion } from "framer-motion";
 
 function Quiz(props) {
   return (
-    <div className="frame w-full max-h-full flex overflow-hidden">
-      <div className="imgBox">
-        <Image
-          src="/linux.svg"
-          className="imgBox object-cover w-5/12 h-screen"
-          width={1000}
-          height={2000}
-          style={{ objectFit: "cover" }}
-        />
+    <div className="frame w-full h-[calc(100vh-95px)] flex overflow-hidden">
+      <div className={`imgBox w-5/12`}>
+        <Image src="/linux.svg" width={1000} height={1500} objectFit="cover" />
       </div>
-      <div className="questionBox h-screen w-7/12 flex flex-col justify-around p-16  ">
+      <div className={`questionBox w-7/12 flex flex-col justify-around p-16`}>
         <div className="advancement flex justify-end">
           <p className="text-[#8D49C3] font-semibold text-3xl">1/10</p>
         </div>
@@ -23,21 +18,36 @@ function Quiz(props) {
           </div>
         </div>
         <div className="titleBox flex justify-center">
-          <h2 className="font-extrabold text-5xl">
+          <h2 className="font-extrabold text-5xl text-center">
             What is the correct way to end a Linux statement?
           </h2>
         </div>
-        <div className="questionBox flex justify-center flex-wrap gap-8">
+        <motion.div
+          className="questionBox flex justify-center flex-wrap gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
           <QuestionBox />
           <QuestionBox />
           <QuestionBox />
           <QuestionBox />
-        </div>
-        <div className="validateBox flex justify-end">
-          <div className="validateBtn w-[280px] h-[50px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer">
+        </motion.div>
+        <motion.div
+          className="validateBox flex justify-end"
+          initial={{ x: -250, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+        >
+          <motion.div
+            className="validateBtn w-[280px] h-[50px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer"
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0px 0px 4px rgb(50, 50, 50)",
+            }}
+          >
             <p className="text-white text-2xl font-medium">Valider</p>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

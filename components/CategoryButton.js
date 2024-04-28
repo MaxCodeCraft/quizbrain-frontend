@@ -9,11 +9,11 @@ function CategoryButton(props) {
         <motion.div
           className="categoryButton w-72 h-16 flex justify-center items-center bg-[#E7E7E7] border border-black rounded-xl cursor-pointer"
           initial={{ scale: 0, opacity: 0 }}
-          animate={{ rotate: 360, scale: 1, opacity: 1 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.1 }}
           transition={{
             type: "spring",
-            stiffness: 260,
-            damping: 20,
+            stiffness: 160,
             duration: 1.2,
           }}
         >
