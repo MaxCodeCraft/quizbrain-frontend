@@ -3,15 +3,15 @@ import { motion } from "framer-motion";
 
 function Home() {
   const buttonsData = [
-    { id: 1, name: "Linux", icon: "/tux.svg" },
-    { id: 2, name: "Bash", icon: "/bash.svg" },
-    { id: 3, name: "Docker", icon: "/docker.svg" },
-    { id: 4, name: "Linux", icon: "/tux.svg" },
-    { id: 5, name: "Bash", icon: "/bash.svg" },
-    { id: 6, name: "Docker", icon: "/docker.svg" },
-    { id: 7, name: "Linux", icon: "/tux.svg" },
-    { id: 8, name: "Bash", icon: "/bash.svg" },
-    { id: 9, name: "Docker", icon: "/docker.svg" },
+    { id: 1, name: "Linux", icon: "/cat-linux.svg" },
+    { id: 2, name: "Bash", icon: "/cat-bash.svg" },
+    { id: 3, name: "Docker", icon: "/cat-docker.svg" },
+    { id: 4, name: "JavaScript", icon: "/cat-javascript.svg" },
+    { id: 5, name: "HTML", icon: "/cat-html.svg" },
+    { id: 6, name: "PHP", icon: "/cat-php.svg" },
+    { id: 7, name: "SQL", icon: "/cat-sql.svg" },
+    { id: 8, name: "Code", icon: "/cat-code.svg" },
+    { id: 9, name: "Python", icon: "/cat-python.svg" },
   ];
 
   const buttons = buttonsData.map((button) => (

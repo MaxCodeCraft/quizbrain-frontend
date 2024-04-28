@@ -6,7 +6,12 @@ function Quiz(props) {
   return (
     <div className="frame w-full h-[calc(100vh-95px)] flex overflow-hidden">
       <div className={`imgBox w-5/12`}>
-        <Image src="/linux.svg" width={1000} height={1500} objectFit="cover" />
+        <Image
+          src="/bg-bash.svg"
+          width={1000}
+          height={1500}
+          objectFit="cover"
+        />
       </div>
       <div className={`questionBox w-7/12 flex flex-col justify-around p-16`}>
         <div className="advancement flex justify-end">
