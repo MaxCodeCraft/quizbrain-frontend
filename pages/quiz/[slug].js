@@ -1,9 +1,6 @@
-import { useRouter, Router } from "next/router";
+import { useRouter } from "next/router";
 import Image from "next/image";
-import Link from "next/link";
-import QuestionBox from "../../components/QuestionBox";
 import { motion } from "framer-motion";
-import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -14,7 +11,6 @@ function Quiz() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [userResponse, setUserResponse] = useState({});
   const [userScore, setUserScore] = useState(0);
-  // const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -35,6 +31,14 @@ function Quiz() {
     console.log(userScore);
   }, [userScore]);
 
+  if (questionNumber === 10) {
+    checkUserResponse();
+    router.push({
+      query: { score: userScore },
+      pathname: "/results",
+    });
+  }
+
   let formattedData = [];
 
   if (questions.length) {
@@ -42,17 +46,14 @@ function Quiz() {
       const question = item.question;
       const answers = [];
 
-      // Parcourir les réponses et les clés correctes
       Object.keys(item.answers).forEach((key) => {
         if (item.answers[key]) {
-          // Vérifier si la réponse existe
           const answerText = item.answers[key];
           const isCorrect = item.correct_answers[key + "_correct"] === "true";
           answers.push({ answer: answerText, isCorrect: isCorrect });
         }
       });
 
-      // Créer un nouvel objet avec les informations nécessaires
       return {
         question: question,
         answers: answers,
@@ -64,6 +65,8 @@ function Quiz() {
     userResponse.isCorrect === true
       ? setUserScore(userScore + 1)
       : setUserScore(userScore);
+
+    setQuestionNumber(questionNumber + 1);
   }
 
   const answers = formattedData[questionNumber]?.answers.map((e, i) => {
@@ -144,15 +147,6 @@ function Quiz() {
             onClick={() => {
               checkUserResponse();
               console.log(userScore);
-              if (questionNumber === 9) {
-                checkUserResponse();
-                router.push({
-                  pathname: "/results",
-                  query: { score: userScore },
-                });
-              } else {
-                setQuestionNumber(questionNumber + 1);
-              }
             }}
           >
             <p className="text-white text-2xl font-medium">Valider</p>

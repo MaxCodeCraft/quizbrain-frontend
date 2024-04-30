@@ -36,7 +36,7 @@ function App({ Component, pageProps }) {
             </Link>
           </motion.div>
 
-          <menu className="links w-64 flex justify-end text-xl">
+          <menu className="links w-64 flex justify-end text-xl hover:text-[#8D49C3]">
             <Link href="/leaderboard">Leaderboard</Link>
           </menu>
         </div>
