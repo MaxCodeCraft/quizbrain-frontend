@@ -115,19 +115,31 @@ function Quiz() {
             </p>
           </div>
         </div>
-        <div className="titleBox flex justify-center">
-          <h2 className="font-extrabold text-4xl text-center">
-            {formattedData[questionNumber]?.question}
-          </h2>
-        </div>
-        <motion.div
-          className="questionBox flex justify-center flex-wrap gap-5"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          {answers}
-        </motion.div>
+        {formattedData[questionNumber]?.question ? (
+          <div className="titleBox flex justify-center">
+            <h2 className="font-extrabold text-4xl text-center">
+              {formattedData[questionNumber]?.question}
+            </h2>
+          </div>
+        ) : (
+          <div className="loadingDiv flex justify-center w-full h-[90px]">
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+        )}
+        {answers ? (
+          <motion.div
+            className="questionBox flex justify-center flex-wrap gap-5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1 }}
+          >
+            {answers}
+          </motion.div>
+        ) : (
+          <div className="loadingDiv flex justify-center w-full h-[250px]">
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+        )}
         <motion.div
           className="validateBox flex justify-end"
           initial={{ x: -250, opacity: 0 }}
