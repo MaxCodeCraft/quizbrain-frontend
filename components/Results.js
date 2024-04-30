@@ -4,12 +4,13 @@ import { useRouter } from "next/router";
 
 function Results() {
   const router = useRouter();
+
   const score = router.query.score;
   let text = "";
 
-  if (score < 4) {
+  if (score < 5) {
     text = "Un petit score, grand sourire ! Ton score est de";
-  } else if (score >= 4 && score <= 7) {
+  } else if (score >= 5 && score <= 7) {
     text = "Pas mal, continue ainsi ! Ton score est de";
   } else {
     text = "Félicitations, ton score est de";
@@ -26,7 +27,7 @@ function Results() {
       <div className="registerScore flex">
         <input
           type="text"
-          placeholder="  Votre nom ? ....Michel ?"
+          placeholder="Votre pseudo ...?"
           className="w-[361px] h-[57px] border-[3px] border-[#8D49C3] rounded-l-lg pl-4"
         ></input>
         <button className="w-[361px] h-[57px] bg-[#8D49C3] text-white font-bold text-2xl rounded-r-lg">

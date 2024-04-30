@@ -61,14 +61,6 @@ function Quiz() {
     });
   }
 
-  function checkUserResponse() {
-    userResponse.isCorrect === true
-      ? setUserScore(userScore + 1)
-      : setUserScore(userScore);
-
-    setQuestionNumber(questionNumber + 1);
-  }
-
   const answers = formattedData[questionNumber]?.answers.map((e, i) => {
     return (
       <motion.div
@@ -87,6 +79,13 @@ function Quiz() {
     );
   });
 
+  function checkUserResponse() {
+    userResponse.isCorrect === true
+      ? setUserScore(userScore + 1)
+      : setUserScore(userScore);
+
+    setQuestionNumber(questionNumber + 1);
+  }
   // function handleClick() {
   //   setIsClicked(!isClicked);
   // }

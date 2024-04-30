@@ -1,17 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { addCategoryToStore } from "../reducers/category";
-import { addQuestionsToStore } from "../reducers/questions";
 
 function CategoryButton(props) {
-  const dispatch = useDispatch();
-
-  const addCategory = (category) => {
-    dispatch(addCategoryToStore(category));
-  };
-
   return (
     <>
       <Link href={`/quiz/${props.cat}`}>

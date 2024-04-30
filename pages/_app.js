@@ -3,18 +3,10 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import category from "../reducers/category";
-import questions from "../reducers/questions";
 
 function App({ Component, pageProps }) {
-  const store = configureStore({
-    reducer: { category, questions },
-  });
-
   return (
-    <Provider store={store}>
+    <>
       <Head>
         <title>QuizBrain</title>
       </Head>
@@ -42,7 +34,7 @@ function App({ Component, pageProps }) {
         </div>
       </header>
       <Component {...pageProps} />
-    </Provider>
+    </>
   );
 }
 
