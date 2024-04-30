@@ -1,9 +1,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 function Results() {
   const router = useRouter();
+
+  const [username, setUsername] = useState("");
 
   const score = router.query.score;
   let text = "";
@@ -15,6 +18,24 @@ function Results() {
   } else {
     text = "Félicitations, ton score est de";
   }
+
+  const handleClick = async () => {
+    const scoreData = {
+      user: username,
+      score: score,
+      category: router.query.slug,
+    };
+
+    const res = await fetch("http://localhost:3000/scores/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(scoreData),
+    });
+    const data = await res.json();
+    console.log(data);
+  };
 
   return (
     <div className="frame w-screen h-[calc(100vh-95px)] flex flex-col justify-between items-center">
@@ -29,8 +50,13 @@ function Results() {
           type="text"
           placeholder="Votre pseudo ...?"
           className="w-[361px] h-[57px] border-[3px] border-[#8D49C3] rounded-l-lg pl-4"
+          onChange={(e) => setUsername(e.target.value)}
+          value={username}
         ></input>
-        <button className="w-[361px] h-[57px] bg-[#8D49C3] text-white font-bold text-2xl rounded-r-lg">
+        <button
+          className="w-[361px] h-[57px] bg-[#8D49C3] text-white font-bold text-2xl rounded-r-lg"
+          onClick={() => handleClick()}
+        >
           M'enregistrer
         </button>
       </div>
