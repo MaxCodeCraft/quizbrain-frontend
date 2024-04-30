@@ -28,7 +28,7 @@ function Home() {
   ));
 
   return (
-    <div className="frame flex justify-center mt-32 h-screen">
+    <div className="frame flex justify-center mt-32 h-[calc(100vh-95px)]">
       <div className="categoryContainer flex flex-col items-center">
         <h1 className="text-[54px] font-extrabold">
           Sur quel thème tu veux{" "}
