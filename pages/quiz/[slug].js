@@ -34,7 +34,7 @@ function Quiz() {
   if (questionNumber === 10) {
     checkUserResponse();
     router.push({
-      query: { score: userScore },
+      query: { score: userScore, category: router.query.slug },
       pathname: "/results",
     });
   }
@@ -62,10 +62,15 @@ function Quiz() {
   }
 
   const answers = formattedData[questionNumber]?.answers.map((e, i) => {
+    let selectedStyle = "border border-black";
+    if (e.answer === userResponse.answer) {
+      selectedStyle = "border-[6px] border-[#8D49C3]";
+    }
+
     return (
       <motion.div
         key={i}
-        className={`questionBox w-[260px] h-[117px] bg-[#E7E7E7] flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-hidden`}
+        className={`questionBox ${selectedStyle} w-[260px] h-[117px] bg-[#E7E7E7] flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-hidden`}
         whileHover={{
           scale: 1.1,
           boxShadow: "0px 0px 4px rgb(50, 50, 50)",
@@ -86,15 +91,6 @@ function Quiz() {
 
     setQuestionNumber(questionNumber + 1);
   }
-  // function handleClick() {
-  //   setIsClicked(!isClicked);
-  // }
-
-  // let selectedStyle = "";
-
-  // isClicked
-  //   ? (selectedStyle = "border-[6px] border-[#8D49C3]")
-  //   : (selectedStyle = "border border-black");
 
   return (
     <div className="frame w-full h-[calc(100vh-95px)] flex overflow-hidden">
@@ -157,30 +153,3 @@ function Quiz() {
 }
 
 export default Quiz;
-
-// return (
-//   <motion.div
-//     className={`questionBox w-[280px] h-[127px] bg-[#E7E7E7] ${selectedStyle} flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-hidden`}
-//     onClick={() => handleClick()}
-//     whileHover={{
-//       scale: 1.1,
-//       boxShadow: "0px 0px 4px rgb(50, 50, 50)",
-//     }}
-//   >
-//     <p className="answer font-medium text-2xl text-center">
-//       {answersFiltered[i]}
-//     </p>
-//   </motion.div>
-
-// const answersFiltered = [];
-
-// if (questions.length) {
-//   const obj = questions[questionNumber].answers;
-//   for (const key in obj) {
-//     const element = obj[key];
-//     console.log(element);
-//     if (element !== null) {
-//       answersFiltered.push(element);
-//     }
-//   }
-// }
