@@ -32,7 +32,7 @@ function Home() {
       <div className="categoryContainer flex flex-col items-center">
         <h1 className="text-[54px] font-extrabold">
           Sur quel thème tu veux{" "}
-          <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[10px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
+          <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[5px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
             bûcher
           </span>{" "}
           ?

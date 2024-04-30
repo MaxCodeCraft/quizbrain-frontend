@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { addCategoryToStore } from "../reducers/category";
+import { addQuestionsToStore } from "../reducers/questions";
 
 function CategoryButton(props) {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ function CategoryButton(props) {
 
   return (
     <>
-      <Link href={`/quiz`}>
+      <Link href={`/quiz/${props.cat}`}>
         <motion.div
           className="categoryButton w-72 h-16 flex justify-center items-center bg-[#E7E7E7] border border-black rounded-xl cursor-pointer"
           initial={{ scale: 0, opacity: 0 }}
@@ -23,9 +24,6 @@ function CategoryButton(props) {
             type: "spring",
             stiffness: 160,
             duration: 1.2,
-          }}
-          onClick={() => {
-            addCategory(props.name);
           }}
         >
           <div className="line flex items-center">

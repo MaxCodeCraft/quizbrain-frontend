@@ -23,7 +23,9 @@ function QuestionBox(props) {
         boxShadow: "0px 0px 4px rgb(50, 50, 50)",
       }}
     >
-      <p className="answer font-medium text-2xl text-center">New line</p>
+      <p className="answer font-medium text-2xl text-center">
+        {props.question}
+      </p>
     </motion.div>
   );
 }
