@@ -1,14 +1,25 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { removeScoreCategory } from "../reducers/scores";
 
 function Results() {
   const router = useRouter();
 
   const [username, setUsername] = useState("");
+  const [category, setCategory] = useState("");
+  const [score, setScore] = useState("");
+  const temp1 = useSelector((state) => state.scores.value[0]);
+  const temp2 = useSelector((state) => state.scores.value[1]);
 
-  const score = router.query.score;
+  useEffect(() => {
+    setCategory(temp1);
+    setScore(temp2);
+    removeScoreCategory();
+  }, []);
+
   let text = "";
 
   if (score < 5) {
@@ -23,7 +34,7 @@ function Results() {
     const scoreData = {
       user: username,
       score: score,
-      category: router.query.slug,
+      category: category,
     };
 
     const res = await fetch("http://localhost:3000/scores/new", {

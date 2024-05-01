@@ -1,4 +1,6 @@
 import CategoryButton from "./CategoryButton";
+import { useDispatch } from "react-redux";
+import { removeScoreCategory } from "../reducers/scores";
 
 function Home() {
   const buttonsData = [
@@ -17,6 +19,10 @@ function Home() {
     { id: 8, btnName: "Code", icon: "/cat-code.svg", cat: "code" },
     { id: 9, btnName: "Python", icon: "/cat-python.svg", cat: "python" },
   ];
+
+  const dispatch = useDispatch();
+
+  dispatch(removeScoreCategory());
 
   const buttons = buttonsData.map((button, i) => (
     <CategoryButton

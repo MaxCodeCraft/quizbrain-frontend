@@ -15,6 +15,12 @@ function Leaderboard() {
           <span className="text-2xl text-[#8D49C3] font-bold">Date</span>
         </div>
         <div className="tableContent w-[1200px] h-[330px] border-[3px] border-t-0 border-[#8D49C3] overflow-auto">
+          <div className="line w-full h-[55px] bg-white grid grid-cols-4 px-5 items-center">
+            <span className="pseudo text-2xl font-medium">Michel 36</span>
+            <span className="score text-2xl font-medium">8/10</span>
+            <span className="category text-2xl font-medium">Linux</span>
+            <span className="date text-2xl font-medium">24/04/2024</span>
+          </div>
           <div className="line w-full h-[55px] bg-[#8D49C3]/[.18] grid grid-cols-4 px-5 items-center">
             <span className="pseudo text-2xl font-medium">Michel 36</span>
             <span className="score text-2xl font-medium">8/10</span>

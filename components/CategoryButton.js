@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { addScoreCategory } from "../reducers/scores";
 
 function CategoryButton(props) {
+  const dispatch = useDispatch();
+
+  function handleClick() {
+    dispatch(addScoreCategory(props.name));
+  }
+
   return (
     <>
       <Link href={`/quiz/${props.cat}`}>
@@ -16,6 +24,7 @@ function CategoryButton(props) {
             stiffness: 160,
             duration: 1.2,
           }}
+          onClick={() => handleClick()}
         >
           <div className="line flex items-center">
             <Image src={`${props.icon}`} width={44} height={46} />

@@ -1,8 +1,10 @@
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addScoreCategory } from "../../reducers/scores";
+import { useSelector } from "react-redux";
 
 function Quiz() {
   const router = useRouter();
@@ -11,6 +13,9 @@ function Quiz() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const [userResponse, setUserResponse] = useState({});
   const [userScore, setUserScore] = useState(0);
+
+  const dispatch = useDispatch();
+  const category = useSelector((state) => state.scores.value[0]);
 
   useEffect(() => {
     const getQuestions = async () => {
@@ -23,18 +28,15 @@ function Quiz() {
     getQuestions();
   }, []);
 
-  useEffect(() => {
-    console.log(userResponse);
-  }, [userResponse]);
+  useEffect(() => {}, [userResponse]);
 
-  useEffect(() => {
-    console.log(userScore);
-  }, [userScore]);
+  useEffect(() => {}, [userScore]);
 
   if (questionNumber === 10) {
     checkUserResponse();
+    dispatch(addScoreCategory(userScore));
     router.push({
-      query: { score: userScore, category: router.query.slug },
+      // query: { score: userScore, category: router.query.slug },
       pathname: "/results",
     });
   }
@@ -110,9 +112,7 @@ function Quiz() {
         </div>
         <div className="quizCategory w-full flex justify-center">
           <div className="bg-[#8D49C3] h-[29px] w-[150px] flex justify-center items-center rounded-full">
-            <p className="text-white font-semibold text-xl">
-              {questions[questionNumber]?.tags[0].name}
-            </p>
+            <p className="text-white font-semibold text-xl">{category}</p>
           </div>
         </div>
         {formattedData[questionNumber]?.question ? (
@@ -153,7 +153,7 @@ function Quiz() {
             }}
             onClick={() => {
               checkUserResponse();
-              console.log(userScore);
+              setUserResponse({});
             }}
           >
             <p className="text-white text-2xl font-medium">Valider</p>
