@@ -45,7 +45,6 @@ function Results() {
       body: JSON.stringify(scoreData),
     });
     const data = await res.json();
-    console.log(data);
   };
 
   return (
