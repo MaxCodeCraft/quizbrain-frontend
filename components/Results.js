@@ -45,6 +45,9 @@ function Results() {
       body: JSON.stringify(scoreData),
     });
     const data = await res.json();
+    router.push({
+      pathname: "/leaderboard",
+    });
   };
 
   return (
