@@ -16,6 +16,7 @@ function App({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <title>QuizBrain</title>
+        <meta name="color-scheme" content="light only"></meta>
       </Head>
       <header className="w-screen sm:h-[95px] h-[70px] border-b-4 border-black flex justify-center">
         <div className="headerContainer flex w-8/12 items-center justify-between">
