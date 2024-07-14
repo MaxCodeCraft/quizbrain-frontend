@@ -12,8 +12,14 @@ const store = configureStore({
 });
 
 function App({ Component, pageProps }) {
+  const lightTheme = {
+    ...DefaultTheme,
+    dark: false,
+  };
+
+  const theme = lightTheme;
   return (
-    <Provider store={store}>
+    <Provider store={store} theme={theme}>
       <Head>
         <title>QuizBrain</title>
         <meta name="color-scheme" content="light only"></meta>
