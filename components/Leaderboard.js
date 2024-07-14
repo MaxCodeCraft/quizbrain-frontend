@@ -5,7 +5,7 @@ function Leaderboard() {
 
   useEffect(() => {
     const getLeaderboard = async () => {
-      const res = await fetch("http://localhost:3000/scores");
+      const res = await fetch("https://quizbrain-backend.vercel.app/scores");
       const data = await res.json();
       setScores(data.result);
     };

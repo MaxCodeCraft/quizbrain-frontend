@@ -37,7 +37,7 @@ function Results() {
       category: category,
     };
 
-    const res = await fetch("http://localhost:3000/scores/new", {
+    const res = await fetch("https://quizbrain-backend.vercel.app/scores/new", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

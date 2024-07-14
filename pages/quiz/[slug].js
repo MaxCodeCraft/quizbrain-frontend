@@ -20,7 +20,7 @@ function Quiz() {
   useEffect(() => {
     const getQuestions = async () => {
       const response = await fetch(
-        `http://localhost:3000/${router.query.slug}`
+        `https://quizbrain-backend.vercel.app/${router.query.slug}`
       );
       const data = await response.json();
       setQuestions(data);
