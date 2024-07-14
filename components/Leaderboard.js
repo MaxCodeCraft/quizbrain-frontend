@@ -42,9 +42,9 @@ function Leaderboard() {
 
   return (
     <div className="frame w-screen sm:h-[calc(100vh-95px)] h-[calc(100vh-70px)] flex flex-col justify-around items-center">
-      <h1 className="text-[54px] font-extrabold">
+      <h1 className="mx-2 lg:text-[54px] font-extrabold text-3xl text-center">
         Voici la crème de la{" "}
-        <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[10px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
+        <span className="text-white relative z-10 after:absolute after:h-[40px] after:w-[105%] after:top-[2px] after:left-[-2px] after:right-0 lg:after:h-[60px] after:bg-[#8D49C3] after:content-[''] lg:after:top-[10px] lg:after:left-[-5px] lg:after:right-0 after:transform after:rotate-[357deg] after:-z-10">
           crème
         </span>
       </h1>
