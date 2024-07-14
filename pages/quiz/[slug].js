@@ -72,7 +72,7 @@ function Quiz() {
     return (
       <motion.div
         key={i}
-        className={`questionBox ${selectedStyle} w-[260px] h-[117px] bg-[#E7E7E7] flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-hidden`}
+        className={`questionBox ${selectedStyle} w-[260px] lg:w-[220px] h-[117px] lg:h-[99px] bg-[#E7E7E7] flex justify-center flex-wrap items-center cursor-pointer rounded-lg overflow-auto`}
         whileHover={{
           scale: 1.1,
           boxShadow: "0px 0px 4px rgb(50, 50, 50)",
@@ -81,7 +81,9 @@ function Quiz() {
           setUserResponse(e);
         }}
       >
-        <p className="answer font-medium text-xl text-center">{e.answer}</p>
+        <p className="answer font-medium text-lg lg:text-lg text-center">
+          {e.answer}
+        </p>
       </motion.div>
     );
   });
@@ -95,18 +97,20 @@ function Quiz() {
   }
 
   return (
-    <div className="frame w-full h-[calc(100vh-95px)] flex overflow-hidden">
-      <div className={`imgBox w-5/12`}>
+    <div className="frame w-full h-[calc(100vh-95px)] flex lg:overflow-hidden">
+      <div className={`imgBox lg:w-5/12 lg:block hidden`}>
         <Image
           src="/bg-linux.svg"
           width={1000}
-          height={1500}
+          height={1700}
           objectFit="cover"
         />
       </div>
-      <div className={`questionBox w-7/12 flex flex-col justify-around p-16`}>
-        <div className="advancement flex justify-end">
-          <p className="text-[#8D49C3] font-semibold text-3xl">
+      <div
+        className={`questionBox lg:w-7/12 w-full flex flex-col justify-around lg:p-16`}
+      >
+        <div className="advancement flex justify-end pt-2 pr-2">
+          <p className="text-[#8D49C3] font-semibold sm:text-xl lg:text-2xl xl:text-3xl">
             {questionNumber + 1}/10
           </p>
         </div>
@@ -117,7 +121,7 @@ function Quiz() {
         </div>
         {formattedData[questionNumber]?.question ? (
           <div className="titleBox flex justify-center">
-            <h2 className="font-extrabold text-4xl text-center">
+            <h2 className="font-extrabold xl:text-4xl md:text-3xl text-xl text-center px-2">
               {formattedData[questionNumber]?.question}
             </h2>
           </div>
@@ -128,7 +132,7 @@ function Quiz() {
         )}
         {answers ? (
           <motion.div
-            className="questionBox flex justify-center flex-wrap gap-5"
+            className="questionBox py-4 flex justify-center flex-wrap gap-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1 }}
@@ -141,12 +145,12 @@ function Quiz() {
           </div>
         )}
         <motion.div
-          className="validateBox flex justify-end"
+          className="validateBox flex xl:justify-end justify-center pb-2"
           initial={{ x: -250, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
         >
           <motion.div
-            className="validateBtn w-[280px] h-[50px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer"
+            className="validateBtn xl:w-[280px] w-[250px] xl:h-[50px] h-[45px] bg-[#8D49C3] flex justify-center items-center rounded-lg cursor-pointer"
             whileHover={{
               scale: 1.1,
               boxShadow: "0px 0px 4px rgb(50, 50, 50)",
@@ -156,7 +160,9 @@ function Quiz() {
               setUserResponse({});
             }}
           >
-            <p className="text-white text-2xl font-medium">Valider</p>
+            <p className="text-white xl:text-2xl text-xl font-medium">
+              Valider
+            </p>
           </motion.div>
         </motion.div>
       </div>

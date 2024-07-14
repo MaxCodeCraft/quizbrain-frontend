@@ -15,7 +15,7 @@ function CategoryButton(props) {
     <>
       <Link href={`/quiz/${props.cat}`}>
         <motion.div
-          className="categoryButton w-72 h-16 flex justify-center items-center bg-[#E7E7E7] border border-black rounded-xl cursor-pointer"
+          className="categoryButton lg:w-72 lg:h-16 sm:w-64 w-56 h-14 flex justify-center items-center bg-[#E7E7E7] border border-black rounded-xl cursor-pointer"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           whileHover={{ scale: 1.1 }}
@@ -28,7 +28,9 @@ function CategoryButton(props) {
         >
           <div className="line flex items-center">
             <Image src={`${props.icon}`} width={44} height={46} />
-            <p className="title pl-3 text-4xl font-bold">{props.name}</p>
+            <p className="title pl-3 lg:text-4xl text-2xl font-bold">
+              {props.name}
+            </p>
           </div>
         </motion.div>
       </Link>

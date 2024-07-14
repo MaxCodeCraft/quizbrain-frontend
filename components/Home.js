@@ -34,16 +34,18 @@ function Home() {
   ));
 
   return (
-    <div className="frame flex justify-center mt-32 h-[calc(100vh-95px)]">
+    <div className="frame flex justify-center md:mt-32 mt-8 md:h-[calc(100vh-95px)]">
       <div className="categoryContainer flex flex-col items-center">
-        <h1 className="text-[54px] font-extrabold">
+        <h1 className="lg:text-[54px] md:text-5xl text-4xl font-extrabold text-center">
           Sur quel thème tu veux{" "}
-          <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[5px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
+          <span className="text-white relative z-10 after:absolute md:after:h-[55px] sm:after:h-[40px] after:h-[35px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[5px] after:left-[-5px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
             bûcher
           </span>{" "}
           ?
         </h1>
-        <div className="categories mt-10 grid gap-5 grid-cols-3">{buttons}</div>
+        <div className="categories mt-10 grid gap-5 md:grid-cols-3 sm:grid-cols-2">
+          {buttons}
+        </div>
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ function App({ Component, pageProps }) {
       <Head>
         <title>QuizBrain</title>
       </Head>
-      <header className="w-screen h-[95px] border-b-4 border-black flex justify-center">
+      <header className="w-screen sm:h-[95px] h-[70px] border-b-4 border-black flex justify-center">
         <div className="headerContainer flex w-8/12 items-center justify-between">
           <motion.div
             className="logoBlock flex w-64 justify-between items-center"
@@ -26,7 +26,7 @@ function App({ Component, pageProps }) {
           >
             <Image src="/logo.svg" width={67} height={67} />
             <Link href="/">
-              <div className="logoTitle text-4xl font-extrabold cursor-pointer">
+              <div className="logoTitle md:text-4xl text-lg font-extrabold cursor-pointer">
                 <p>
                   Quiz
                   <span className="text-[#8D49C3] cursor-pointer">Brain</span>
@@ -35,7 +35,7 @@ function App({ Component, pageProps }) {
             </Link>
           </motion.div>
 
-          <menu className="links w-64 flex justify-end text-xl font-medium hover:text-[#8D49C3]">
+          <menu className="links w-64 flex justify-end md:text-xl font-medium hover:text-[#8D49C3]">
             <Link href="/leaderboard">Leaderboard</Link>
           </menu>
         </div>

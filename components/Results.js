@@ -52,22 +52,22 @@ function Results() {
 
   return (
     <div className="frame w-screen h-[calc(100vh-95px)] flex flex-col justify-between items-center">
-      <h2 className="text-[48px] font-extrabold w-1/2 text-center pt-32 pb-8">
+      <h2 className="lg:text-[48px] text-3xl font-extrabold lg:w-1/2 px-2 text-center pt-5 md:pt-16 lg:pt-32 pb-8 md:pb-20 md:leading-tight">
         {text}{" "}
-        <span className="text-white relative z-10 after:absolute after:h-[60px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[5px] after:left-[-2px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
+        <span className="text-white relative z-10 after:absolute  lg:after:h-[55px] sm:after:h-[40px] after:h-[35px] after:w-[105%] after:bg-[#8D49C3] after:content-[''] after:top-[5px] after:left-[-2px] after:right-0 after:transform after:rotate-[357deg] after:-z-10">
           {score}/10
         </span>
       </h2>
-      <div className="registerScore flex">
+      <div className="registerScore flex flex-col md:flex-row">
         <input
           type="text"
           placeholder="Votre pseudo ...?"
-          className="w-[361px] h-[57px] border-[3px] border-[#8D49C3] rounded-l-lg pl-4"
+          className="lg:w-[361px] md:w-[340px] w-[310px] h-[45px] md:h-[57px] border-[3px] border-[#8D49C3] rounded-t-lg md:rounded-none md:rounded-l-lg pl-4"
           onChange={(e) => setUsername(e.target.value)}
           value={username}
         ></input>
         <button
-          className="w-[361px] h-[57px] bg-[#8D49C3] text-white font-bold text-2xl rounded-r-lg"
+          className="lg:w-[361px] md:w-[340px] w-[310px] h-[45px] md:h-[57px] bg-[#8D49C3] text-white font-bold text-2xl rounded-b-lg md:rounded-none md:rounded-r-lg"
           onClick={() => handleClick()}
         >
           M'enregistrer
